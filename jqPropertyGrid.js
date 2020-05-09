@@ -335,12 +335,14 @@
 
 		html += '>';
 
-		var text;
-		var value;
+                var text;
+                var value;
+                var optClass;
 		for (var i = 0; i < options.length; i++) {
 			value = typeof options[i] === 'object' ? options[i].value : options[i];
-			text = typeof options[i] === 'object' ? options[i].text : options[i];
-			html += '<option value="' + value + '"' + (selectedValue === value ? ' selected>' : '>');
+                        text = typeof options[i] === 'object' ? options[i].text : options[i];
+                        optClass = typeof options[i] === 'object' ? options[i].class : '';
+			html += '<option ' + (optClass ? 'class="' + optClass : '') + '"' + ' value="' + value + '"' + (selectedValue === value ? ' selected>' : '>');
 			html += text + '</option>';
 		}
 
